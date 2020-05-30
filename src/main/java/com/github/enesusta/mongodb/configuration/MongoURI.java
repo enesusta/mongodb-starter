@@ -23,18 +23,17 @@ public class MongoURI {
         this.port = port;
     }
 
-    public String mongoConnectionUrl(MongoURI mongoURI) {
-        return String
-                .format("mongodb://%s:%s@%s:%d/%s", mongoURI.getUsername(), mongoURI.getPwd(),
-                        mongoURI.getHost(), mongoURI.getPort(), mongoURI.getDb());
-    }
-
     public static class MongoURIBuilder {
-        private String username;
-        private String pwd;
-        private String host;
-        private String db;
-        private int port;
+
+        /**
+         * Those are defaults
+         */
+
+        private String username = "";
+        private String pwd = "";
+        private String host = "localhost";
+        private String db = "";
+        private int port = 27017;
 
         public MongoURIBuilder user(final String username) {
             this.username = username;
